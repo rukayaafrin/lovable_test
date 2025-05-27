@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, Database, Cloud, Heart, Flower } from 'lucide-react';
+import { ArrowRight, Code, Database, Cloud, Heart, Flower, Sparkles, Star, Zap } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -16,8 +16,10 @@ const Home = () => {
                 Your Name
               </span>
             </h1>
-            <p className="text-xl sm:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto animate-fade-in">
+            <p className="text-xl sm:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto animate-fade-in flex items-center justify-center gap-2">
+              <Sparkles className="text-pink-500" size={24} />
               Full Stack Developer crafting beautiful digital experiences ✨
+              <Star className="text-purple-500" size={20} />
             </p>
             <p className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto animate-fade-in">
               Passionate about building elegant web applications using React, Ruby on Rails, AWS, and more.
@@ -29,6 +31,7 @@ const Home = () => {
                 to="/projects"
                 className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full font-medium hover:from-pink-600 hover:to-rose-600 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
               >
+                <Code className="mr-2" size={20} />
                 View My Work
                 <ArrowRight className="ml-2" size={20} />
               </Link>
@@ -36,6 +39,7 @@ const Home = () => {
                 to="/contact"
                 className="inline-flex items-center px-8 py-3 bg-white text-slate-800 rounded-full font-medium border-2 border-pink-300 hover:border-pink-500 hover:text-pink-600 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
               >
+                <Heart className="mr-2" size={20} />
                 Get In Touch
               </Link>
             </div>
@@ -48,13 +52,18 @@ const Home = () => {
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-rose-200 rounded-full opacity-50 animate-float" style={{ animationDelay: '2s' }}></div>
         <Heart className="absolute top-32 right-1/4 text-pink-300 animate-pulse" size={24} />
         <Flower className="absolute bottom-32 left-1/3 text-purple-300 animate-pulse" size={20} />
+        <Sparkles className="absolute top-1/3 right-1/3 text-rose-300 animate-pulse" size={18} />
+        <Star className="absolute bottom-1/3 right-1/4 text-pink-400 animate-pulse" size={16} />
       </section>
 
       {/* Skills Preview */}
       <section className="py-20 bg-white/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">What I Do</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-4 flex items-center justify-center gap-2">
+              <Zap className="text-pink-500" size={32} />
+              What I Do
+            </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               I specialize in building end-to-end solutions with a touch of creativity and elegance 🌸
             </p>

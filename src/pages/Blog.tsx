@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, BookOpen, Tag, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Blog = () => {
@@ -76,7 +75,11 @@ const Blog = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">Technical Blog</h1>
+          <h1 className="text-4xl font-bold text-slate-800 mb-4 flex items-center justify-center gap-3">
+            <BookOpen className="text-pink-500" size={40} />
+            Technical Blog
+            <BookOpen className="text-pink-500" size={40} />
+          </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Sharing insights, tutorials, and lessons learned from my journey as a full-stack developer
           </p>
@@ -84,7 +87,10 @@ const Blog = () => {
 
         {/* Featured Posts */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-slate-800 mb-8">Featured Articles</h2>
+          <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+            <TrendingUp className="text-pink-500" size={24} />
+            Featured Articles
+          </h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {featuredPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -95,7 +101,8 @@ const Blog = () => {
                     className="w-full h-48 object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-emerald-600 text-white rounded-full text-sm font-medium">
+                    <span className="flex items-center gap-1 px-3 py-1 bg-pink-600 text-white rounded-full text-sm font-medium">
+                      <Tag size={12} />
                       {post.category}
                     </span>
                   </div>
@@ -124,7 +131,7 @@ const Blog = () => {
                   
                   <Link
                     to={`/blog/${post.id}`}
-                    className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
+                    className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-700 font-medium transition-colors"
                   >
                     Read More
                     <ArrowRight size={16} />
@@ -141,12 +148,13 @@ const Blog = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                 selectedCategory === category
-                  ? 'bg-emerald-600 text-white'
+                  ? 'bg-pink-600 text-white'
                   : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
               }`}
             >
+              <Tag size={14} />
               {category}
             </button>
           ))}
@@ -154,7 +162,10 @@ const Blog = () => {
 
         {/* All Posts */}
         <section>
-          <h2 className="text-2xl font-bold text-slate-800 mb-8">All Articles</h2>
+          <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+            <BookOpen className="text-pink-500" size={24} />
+            All Articles
+          </h2>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -165,7 +176,8 @@ const Blog = () => {
                     className="w-full h-40 object-cover"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-2 py-1 bg-slate-800/80 backdrop-blur-sm text-white rounded text-xs font-medium">
+                    <span className="flex items-center gap-1 px-2 py-1 bg-slate-800/80 backdrop-blur-sm text-white rounded text-xs font-medium">
+                      <Tag size={10} />
                       {post.category}
                     </span>
                   </div>
@@ -191,7 +203,7 @@ const Blog = () => {
                   
                   <Link
                     to={`/blog/${post.id}`}
-                    className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium text-sm transition-colors"
+                    className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-700 font-medium text-sm transition-colors"
                   >
                     Read More
                     <ArrowRight size={14} />
@@ -203,8 +215,11 @@ const Blog = () => {
         </section>
 
         {/* Newsletter Signup */}
-        <section className="mt-20 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-2xl p-8 text-white text-center">
-          <h2 className="text-2xl font-bold mb-4">Stay Updated</h2>
+        <section className="mt-20 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl p-8 text-white text-center">
+          <h2 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
+            <BookOpen size={24} />
+            Stay Updated
+          </h2>
           <p className="mb-6 opacity-90">
             Subscribe to get notified about new articles and technical insights.
           </p>
@@ -214,7 +229,8 @@ const Blog = () => {
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg text-slate-800 border-0 focus:outline-none focus:ring-2 focus:ring-white/50"
             />
-            <button className="px-6 py-3 bg-white text-slate-800 rounded-lg font-medium hover:bg-slate-100 transition-colors">
+            <button className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-800 rounded-lg font-medium hover:bg-slate-100 transition-colors">
+              <ArrowRight size={16} />
               Subscribe
             </button>
           </div>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Github, Linkedin, Menu, X, Heart } from 'lucide-react';
+import { Github, Linkedin, Menu, X, Heart, Home, User, FolderOpen, BookOpen, Mail } from 'lucide-react';
 import { useState } from 'react';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -9,11 +9,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '/', icon: Home },
+    { name: 'About', path: '/about', icon: User },
+    { name: 'Projects', path: '/projects', icon: FolderOpen },
+    { name: 'Blog', path: '/blog', icon: BookOpen },
+    { name: 'Contact', path: '/contact', icon: Mail },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -32,19 +32,23 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                    isActive(item.path)
-                      ? 'text-pink-600 bg-pink-50'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-pink-50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                      isActive(item.path)
+                        ? 'text-pink-600 bg-pink-50'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-pink-50'
+                    }`}
+                  >
+                    <IconComponent size={16} />
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Social Links */}
@@ -81,20 +85,24 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-pink-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-pink-600 bg-pink-50'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-pink-50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                      isActive(item.path)
+                        ? 'text-pink-600 bg-pink-50'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-pink-50'
+                    }`}
+                  >
+                    <IconComponent size={18} />
+                    {item.name}
+                  </Link>
+                );
+              })}
               <div className="flex space-x-4 px-3 py-2">
                 <a
                   href="https://github.com"

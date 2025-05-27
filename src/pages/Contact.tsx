@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Github, Linkedin, Send, Heart } from 'lucide-react';
+import { Mail, MapPin, Phone, Github, Linkedin, Send, Heart, MessageCircle, Clock, Wifi } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -41,7 +41,11 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">Get In Touch</h1>
+          <h1 className="text-4xl font-bold text-slate-800 mb-4 flex items-center justify-center gap-3">
+            <MessageCircle className="text-pink-500" size={40} />
+            Get In Touch
+            <MessageCircle className="text-pink-500" size={40} />
+          </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Have a project in mind or want to collaborate? I'd love to hear from you! ✨
           </p>
@@ -146,7 +150,10 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Contact Details */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-pink-100">
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <Phone className="text-pink-500" size={24} />
+                Contact Information
+              </h2>
               
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
@@ -183,7 +190,10 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl shadow-xl p-8 text-white">
-              <h2 className="text-2xl font-bold mb-6">Let's Connect</h2>
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                <Heart size={24} />
+                Let's Connect
+              </h2>
               <p className="mb-6 opacity-90">
                 Follow me on social media for the latest updates and beautiful code! 🌸
               </p>
@@ -210,10 +220,16 @@ const Contact = () => {
 
             {/* Availability */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-pink-100">
-              <h3 className="text-xl font-bold text-slate-800 mb-4">Availability</h3>
+              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <Clock className="text-pink-500" size={20} />
+                Availability
+              </h3>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 bg-pink-500 rounded-full animate-pulse"></div>
-                <span className="font-medium text-pink-600">Available for new projects</span>
+                <span className="font-medium text-pink-600 flex items-center gap-2">
+                  <Wifi size={16} />
+                  Available for new projects
+                </span>
               </div>
               <p className="text-slate-600 text-sm">
                 I'm currently accepting new freelance and full-time opportunities. 

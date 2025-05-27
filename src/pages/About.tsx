@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Calendar, Mail, Phone, Heart } from 'lucide-react';
+import { MapPin, Calendar, Mail, Phone, Heart, Award, Users, Coffee, Lightbulb } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const About = () => {
@@ -18,7 +18,11 @@ const About = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">About Me</h1>
+          <h1 className="text-4xl font-bold text-slate-800 mb-4 flex items-center justify-center gap-3">
+            <Heart className="text-pink-500" size={40} />
+            About Me
+            <Heart className="text-pink-500" size={40} />
+          </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Passionate full-stack developer with a love for creating beautiful, innovative solutions ✨
           </p>
@@ -28,7 +32,10 @@ const About = () => {
           {/* Bio Section */}
           <div>
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-pink-100">
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">My Story</h2>
+              <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <Lightbulb className="text-pink-500" size={24} />
+                My Story
+              </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
                   I'm a passionate full-stack developer with over 5 years of experience building 
@@ -94,25 +101,37 @@ const About = () => {
 
               <div className="mt-6 pt-6 border-t border-pink-200">
                 <h4 className="font-semibold text-slate-800 mb-3 flex items-center gap-2">
-                  <Heart size={16} className="text-pink-500" />
+                  <Award className="text-pink-500" size={16} />
                   Quick Facts
                 </h4>
                 <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <span className="text-slate-500">Projects Completed:</span>
-                    <p className="font-medium text-slate-800">50+</p>
+                  <div className="flex items-center gap-2">
+                    <Users size={14} className="text-pink-500" />
+                    <div>
+                      <span className="text-slate-500">Projects Completed:</span>
+                      <p className="font-medium text-slate-800">50+</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-slate-500">Years of Experience:</span>
-                    <p className="font-medium text-slate-800">5+</p>
+                  <div className="flex items-center gap-2">
+                    <Calendar size={14} className="text-pink-500" />
+                    <div>
+                      <span className="text-slate-500">Years of Experience:</span>
+                      <p className="font-medium text-slate-800">5+</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-slate-500">Preferred Stack:</span>
-                    <p className="font-medium text-slate-800">React + Rails</p>
+                  <div className="flex items-center gap-2">
+                    <Coffee size={14} className="text-pink-500" />
+                    <div>
+                      <span className="text-slate-500">Preferred Stack:</span>
+                      <p className="font-medium text-slate-800">React + Rails</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-slate-500">Location:</span>
-                    <p className="font-medium text-slate-800">Remote</p>
+                  <div className="flex items-center gap-2">
+                    <MapPin size={14} className="text-pink-500" />
+                    <div>
+                      <span className="text-slate-500">Location:</span>
+                      <p className="font-medium text-slate-800">Remote</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -122,7 +141,10 @@ const About = () => {
           {/* Skills Section */}
           <div>
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-pink-100">
-              <h2 className="text-2xl font-bold text-slate-800 mb-8">Technical Skills</h2>
+              <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+                <Award className="text-pink-500" size={24} />
+                Technical Skills
+              </h2>
               <div className="space-y-6">
                 {skills.map((skill, index) => (
                   <div key={skill.name} className="relative">
@@ -144,7 +166,10 @@ const About = () => {
               </div>
 
               <div className="mt-8 pt-8 border-t border-pink-200">
-                <h3 className="font-semibold text-slate-800 mb-4">Other Technologies</h3>
+                <h3 className="font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                  <Coffee className="text-pink-500" size={16} />
+                  Other Technologies
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {['Git', 'Docker', 'PostgreSQL', 'Redis', 'GraphQL', 'Jest', 'Webpack', 'Linux'].map((tech) => (
                     <span

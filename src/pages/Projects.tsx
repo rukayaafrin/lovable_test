@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, X } from 'lucide-react';
+import { ExternalLink, Github, X, Star, Zap, Rocket } from 'lucide-react';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -84,12 +84,21 @@ const Projects = () => {
           alt={project.title}
           className="w-full h-48 object-cover"
         />
+        {featured && (
+          <div className="absolute top-4 left-4">
+            <span className="flex items-center gap-1 px-3 py-1 bg-pink-500 text-white rounded-full text-sm font-medium">
+              <Star size={14} />
+              Featured
+            </span>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
           <div className="p-4 text-white">
             <button
               onClick={() => setSelectedProject(project)}
-              className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-colors"
+              className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-colors"
             >
+              <Zap size={16} />
               View Details
             </button>
           </div>
@@ -104,7 +113,7 @@ const Projects = () => {
           {project.technologies.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-sm font-medium"
+              className="px-2 py-1 bg-pink-100 text-pink-700 rounded text-sm font-medium"
             >
               {tech}
             </span>
@@ -133,7 +142,7 @@ const Projects = () => {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="flex items-center gap-2 text-pink-600 hover:text-pink-700 transition-colors"
             >
               <ExternalLink size={16} />
               <span className="text-sm">Live Demo</span>
@@ -149,7 +158,11 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">My Projects</h1>
+          <h1 className="text-4xl font-bold text-slate-800 mb-4 flex items-center justify-center gap-3">
+            <Rocket className="text-pink-500" size={40} />
+            My Projects
+            <Rocket className="text-pink-500" size={40} />
+          </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             A collection of projects showcasing my skills in full-stack development
           </p>
@@ -157,7 +170,10 @@ const Projects = () => {
 
         {/* Featured Projects */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-slate-800 mb-8">Featured Projects</h2>
+          <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+            <Star className="text-pink-500" size={24} />
+            Featured Projects
+          </h2>
           <div className="grid lg:grid-cols-4 gap-8">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} featured={true} />
@@ -167,7 +183,10 @@ const Projects = () => {
 
         {/* Other Projects */}
         <section>
-          <h2 className="text-2xl font-bold text-slate-800 mb-8">Other Projects</h2>
+          <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+            <Zap className="text-pink-500" size={24} />
+            Other Projects
+          </h2>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {otherProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
@@ -194,16 +213,22 @@ const Projects = () => {
               </div>
               
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-slate-800 mb-4">{selectedProject.title}</h2>
+                <h2 className="text-3xl font-bold text-slate-800 mb-4 flex items-center gap-3">
+                  <Rocket className="text-pink-500" size={32} />
+                  {selectedProject.title}
+                </h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">{selectedProject.longDescription}</p>
                 
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-slate-800 mb-3">Technologies Used</h3>
+                  <h3 className="text-lg font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                    <Zap className="text-pink-500" size={18} />
+                    Technologies Used
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
+                        className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -228,7 +253,7 @@ const Projects = () => {
                       href={selectedProject.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors"
                     >
                       <ExternalLink size={20} />
                       Live Demo
