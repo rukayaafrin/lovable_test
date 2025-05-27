@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Download, MapPin, Calendar } from 'lucide-react';
+import { MapPin, Calendar, Mail, Phone } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const About = () => {
   const skills = [
@@ -57,16 +58,60 @@ const About = () => {
               </div>
             </div>
 
-            {/* Resume Download */}
-            <div className="bg-gradient-to-r from-emerald-500 to-blue-600 rounded-2xl shadow-xl p-8 text-white">
-              <h3 className="text-xl font-bold mb-4">Download Resume</h3>
-              <p className="mb-6 opacity-90">
-                Get a detailed overview of my experience, education, and skills.
-              </p>
-              <button className="inline-flex items-center px-6 py-3 bg-white text-slate-800 rounded-lg font-medium hover:bg-slate-100 transition-colors">
-                <Download className="mr-2" size={20} />
-                Download PDF
-              </button>
+            {/* Personal Info Card */}
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <div className="flex items-center gap-6 mb-6">
+                <Avatar className="w-20 h-20">
+                  <AvatarImage 
+                    src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&fit=crop&crop=face" 
+                    alt="Profile Picture" 
+                  />
+                  <AvatarFallback className="text-xl font-semibold bg-emerald-100 text-emerald-700">
+                    YN
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-800">Your Name</h3>
+                  <p className="text-lg text-emerald-600 font-medium">Full Stack Developer</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-slate-600">
+                  <Mail size={18} className="text-emerald-600" />
+                  <span>your.email@example.com</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-600">
+                  <Phone size={18} className="text-emerald-600" />
+                  <span>+1 (555) 123-4567</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-600">
+                  <MapPin size={18} className="text-emerald-600" />
+                  <span>Available for remote work worldwide</span>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-slate-200">
+                <h4 className="font-semibold text-slate-800 mb-3">Quick Facts</h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span className="text-slate-500">Projects Completed:</span>
+                    <p className="font-medium text-slate-800">50+</p>
+                  </div>
+                  <div>
+                    <span className="text-slate-500">Years of Experience:</span>
+                    <p className="font-medium text-slate-800">5+</p>
+                  </div>
+                  <div>
+                    <span className="text-slate-500">Preferred Stack:</span>
+                    <p className="font-medium text-slate-800">React + Rails</p>
+                  </div>
+                  <div>
+                    <span className="text-slate-500">Location:</span>
+                    <p className="font-medium text-slate-800">Remote</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
