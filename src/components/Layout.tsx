@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Github, Linkedin, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Menu, X, Heart } from 'lucide-react';
 import { useState } from 'react';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -19,13 +19,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200 sticky top-0 z-50">
+      <nav className="bg-white/90 backdrop-blur-md shadow-sm border-b border-pink-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="text-2xl font-bold text-slate-800 hover:text-emerald-600 transition-colors">
+            <Link to="/" className="flex items-center text-2xl font-bold text-slate-800 hover:text-pink-600 transition-colors">
+              <Heart className="mr-2 text-pink-500" size={24} />
               Portfolio
             </Link>
 
@@ -37,8 +38,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'text-emerald-600 bg-emerald-50'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                      ? 'text-pink-600 bg-pink-50'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-pink-50'
                   }`}
                 >
                   {item.name}
@@ -52,7 +53,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors"
+                className="text-slate-600 hover:text-pink-600 transition-colors"
               >
                 <Github size={20} />
               </a>
@@ -60,7 +61,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors"
+                className="text-slate-600 hover:text-pink-600 transition-colors"
               >
                 <Linkedin size={20} />
               </a>
@@ -69,7 +70,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-slate-600 hover:text-slate-900 transition-colors"
+              className="md:hidden text-slate-600 hover:text-pink-600 transition-colors"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -78,7 +79,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-slate-200">
+          <div className="md:hidden bg-white border-t border-pink-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <Link
@@ -87,8 +88,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive(item.path)
-                      ? 'text-emerald-600 bg-emerald-50'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                      ? 'text-pink-600 bg-pink-50'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-pink-50'
                   }`}
                 >
                   {item.name}
@@ -99,7 +100,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 hover:text-slate-900 transition-colors"
+                  className="text-slate-600 hover:text-pink-600 transition-colors"
                 >
                   <Github size={20} />
                 </a>
@@ -107,7 +108,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 hover:text-slate-900 transition-colors"
+                  className="text-slate-600 hover:text-pink-600 transition-colors"
                 >
                   <Linkedin size={20} />
                 </a>
@@ -121,9 +122,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className="min-h-[calc(100vh-4rem)]">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-slate-800 text-slate-300 py-8">
+      <footer className="bg-gradient-to-r from-pink-600 to-purple-600 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p>&copy; 2024 Your Name. All rights reserved.</p>
+          <p>&copy; 2024 Your Name. All rights reserved. Made with 💖</p>
         </div>
       </footer>
     </div>
